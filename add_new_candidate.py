@@ -30,6 +30,10 @@ def extract_candidate_info(transcript: str):
     - Candidate first name (first_name)
     - Candidate last name (last_name)
     - Candidate email address (email)
+
+    You must only provide an email address from the candidate if the recruiter
+    specifically asks for it and the candidate explicitly communicates their email
+    address to the recruiter.
     """
 
     human_msg = """
@@ -49,8 +53,9 @@ def extract_candidate_info(transcript: str):
     return candidate_json
 
 def add_new_cand_from_json(candidate_json):
-    """This method takes in a candidate_json, which includes first name last name
-    and email address, and adds the new candidate to the main database into the Candidates table.
+    """This method takes in a brand new candidate, and adds them to the main
+    db candidates table. The input should be a json object with the following keys:
+    first_name, last_name, email. The output is the newly created candidate ID.
     """
     if isinstance(candidate_json, str):
         candidate_json = json.loads(candidate_json.replace("'", '"'))
@@ -72,10 +77,9 @@ def add_new_cand_from_json(candidate_json):
     return candidate_id
 
 if __name__ == "__main__":
-    DB_PATH = "candidate.db"
-    with open("michael_scott.txt", "r") as file:
+    with open("test_data/transcripts/andy_bernard_minutes.txt", "r") as file:
         transcript = file.read()
     json_output = extract_candidate_info(transcript=transcript)
     print(f"{json_output = }")
-    new_id = add_new_cand_from_json(db_path=DB_PATH, candidate_json=json_output)
+    new_id = add_new_cand_from_json(candidate_json=json_output)
     print(f"{new_id = }")

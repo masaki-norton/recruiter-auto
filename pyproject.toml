@@ -7,7 +7,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-
+chromadb = "^0.6.3"
+langchain = "^0.3.19"
+langchain-openai = "^0.3.6"
+langchain-community = "^0.3.18"
+langchain-chroma = "^0.2.2"
 
 [build-system]
 requires = ["poetry-core"]

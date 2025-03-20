@@ -1,25 +1,29 @@
 CREATE TABLE IF NOT EXISTS Candidates (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    candidate_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL
+    email TEXT UNIQUE NOT NULL,
+    phone TEXT,
+    created_at TEXT DEFAULT (DATETIME('now')),
+    updated_at TEXT DEFAULT (DATETIME('now'))
 );
 
 CREATE TABLE IF NOT EXISTS Notes (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    note_id INTEGER PRIMARY KEY AUTOINCREMENT,
     candidate_id INTEGER NOT NULL,
     note_text TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (candidate_id) REFERENCES Candidates (id)
+    next_action TEXT NOT NULL,
+    created_at TEXT DEFAULT (DATETIME('now')),
+    FOREIGN KEY (candidate_id) REFERENCES Candidates(candidate_id)
 );
 
 CREATE TABLE IF NOT EXISTS WorkExperience (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    experience_id INTEGER PRIMARY KEY AUTOINCREMENT,
     candidate_id INTEGER NOT NULL,
     company TEXT NOT NULL,
-    position TEXT NOT NULL,
     start_date TEXT,
     end_date TEXT,
     description TEXT,
-    FOREIGN KEY (candidate_id) REFERENCES Candidates (id)
+    created_at TEXT DEFAULT (DATETIME('now')),
+    FOREIGN KEY (candidate_id) REFERENCES Candidates(candidate_id)
 );
