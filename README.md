@@ -1,4 +1,4 @@
-I once was a recruiter.
+### I once was a recruiter.
 
 The best part: talk to interesting high impact people and how they work.
 
