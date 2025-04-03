@@ -4,7 +4,8 @@ The best part: talk to interesting high impact people and how they work.
 
 The bad part: entering all that data in a database somewhere. and inevitably having to manually keep track of it all making sure its right.
 
-So I made this tool. its still a work in progress, but right now, it can:
+### So I made this tool. 
+its still a work in progress, but right now, it can:
 
 - Feed in a text transcript file as input. think "recruiter: hows your day? candidate: good thanks"
 
